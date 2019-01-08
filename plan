@@ -1,0 +1,12 @@
+Creds - IAM
+backend - S3
+VPC - 
+subnet - DMZ - 80,443 
+Security groups
+ELB
+EC2
+
+
+Domain - not required as of now
+SSL Certs - not required as of now
+Postgres - Lower priority
