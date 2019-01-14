@@ -17,11 +17,11 @@ terraform {
 
 
 
-data "terraform_remote_state" "aws_instance" {
+data "terraform_remote_state" "core-terraform" {
   backend = "s3"
   config {
     bucket = "opentext-core-terraform-poc"
-    key    = "state/aws_instance.tfstate"
+    key    = "state/core-terraform.tfstate"
     region = "us-east-1"
   	shared_credentials_file = "aws_creds.tfvars"
   	profile = "core_terraform"
@@ -42,17 +42,6 @@ provider "aws" {
 ################################################
 ##    Resource - VPC                          ##
 ################################################
-
-data "terraform_remote_state" "aws_vpc" {
-  backend = "s3"
-  config {
-    bucket = "opentext-core-terraform-poc"
-    key    = "state/vpc.tfstate"
-    region = "us-east-1"
-    shared_credentials_file = "aws_creds.tfvars"
-    profile = "core_terraform"
-  }
-}
 
 resource "aws_vpc" "core-terraform-vpc" {
   cidr_block       = "10.0.0.0/16"
