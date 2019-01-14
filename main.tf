@@ -110,11 +110,18 @@ module "public-route-tables"{
 }
 
 
+
+################################################
+##    Resource - DMZ Subnets                  ##
+################################################
 module "dmz-subnets"{
   source = "./subnets"
   core-terraform-vpc-id = "${aws_vpc.core-terraform-vpc.id}"
   count-dmz-subnets = "${var.az-count}"
 }
+################################################
+## Resource - DMZ Subnets-Route Table Assoc   ##
+################################################
 
 module "public-route-table-associations"{
   source = "./route-table-associations-public"
