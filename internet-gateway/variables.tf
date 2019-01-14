@@ -1,0 +1,1 @@
+variable core-terraform-vpc-id {}
